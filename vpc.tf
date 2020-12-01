@@ -8,7 +8,6 @@ resource "aws_vpc" "aws_vpc" {
   }
 }
 
-
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = awa_vpc.aws_vpc.id
 
