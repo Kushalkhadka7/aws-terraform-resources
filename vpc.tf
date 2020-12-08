@@ -45,5 +45,16 @@ resource "aws_subnet" "public_subnet" {
   depends_on = [aws_internet_gateway.internet_gateway]
 }
 
+resource "aws_vpc_endpoint" "vpc_endpoint_s3" {
+  vpc_id       = aws_vpc.aws_vpc.id
+  service_name = "com.amazonaws.ap-south-1.s3"
 
+  tags = {
+    Environment = "prod"
+  }
+}
 
+resource "aws_vpc_endpoint_route_table_association" "private_rt_association" {
+  route_table_id  = aws_route_table.aws_private_route_table.id
+  vpc_endpoint_id = aws_vpc_endpoint.vpc_endpoint_s3.id
+}

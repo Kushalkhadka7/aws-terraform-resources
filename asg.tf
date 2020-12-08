@@ -11,6 +11,7 @@ resource "aws_autoscaling_group" "admin_asg" {
   security_groups           = [aws_security_group.asg_security_group]
 
 
+
   tag {
     Name                = "admin_asg"
     propagate_at_launch = true
@@ -47,22 +48,24 @@ resource "aws_launch_configuration" "admin_asg_launch" {
 }
 
 
-resource "aws_autoscaling_policy" "admin_asg_policy" {
-  name                    = "admin_asg_policy"
+resource "aws_autoscaling_policy" "admin_asg_policy_scale_up" {
+  name                    = "admin_asg_policy_scale_up"
   scaling_adjustment      = 3
   adjustment_type         = "ChangeInCapacity"
   cooldown                = 300
   policy_type             = "SimpleScaling"
   auto_scaling_group_name = aws_autoscaling_group.admin_asg
-
-  target_tracking_configuration {
-    predefined_metric_specification {
-      predefined_metric_type = "ASGAverageCPUUtilization"
-    }
-
-    target_value = 40.0
-  }
 }
+
+resource "aws_autoscaling_policy" "admin_asg_policy_scale_down" {
+  name                    = "admin_asg_policy_scale_up"
+  scaling_adjustment      = 1
+  adjustment_type         = "ChangeInCapacity"
+  cooldown                = 300
+  policy_type             = "SimpleScaling"
+  auto_scaling_group_name = aws_autoscaling_group.admin_asg
+}
+
 
 
 resource "aws_autoscaling_attachment" "asg_admin_elb" {
