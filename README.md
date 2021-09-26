@@ -5,11 +5,11 @@ Creates aws resources using terraform modules.
 # Resources
 
 - [VPC](#vpc/README.md)
-  - [RouteTables]
-  - [Subnets)]
-  - [NATGateway]
-  - [NACL]
-  - [InternetGateway]
+  - [RouteTables](#asg/README.md)
+  - [Subnets)](#asg/README.md)
+  - [NATGateway](#asg/README.md)
+  - [NACL](#asg/README.md)
+  - [InternetGateway](#asg/README.md)
 - [ASG](#asg/README.md)
 - [ALB](#alb/README.md)
 - [CloudWatch](#cloudwatch/README.md)
