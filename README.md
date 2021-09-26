@@ -16,12 +16,12 @@ Creates aws resources using terraform modules.
 - [S#](#s3/README.md)
 - [RDS](#rds/README.md)
 - [DynamoDB](#dynamo/README.md)
-- [SecurityGroups]
-- [TargetGroups]
-- [SQS]
-- [SNS]
-- [SES]
-- [EC2Instances]
+- [SecurityGroups](#asg/README.md)
+- [TargetGroups](#asg/README.md)
+- [SQS](#asg/README.md)
+- [SNS](#asg/README.md)
+- [SES](#asg/README.md)
+- [EC2Instances](#asg/README.md)
 
 ## Requirements
 
